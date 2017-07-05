@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :locales
+  resources :users, only: [:create, :show]
 
   root to: "home#index"
 
