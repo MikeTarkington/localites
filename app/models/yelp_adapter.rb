@@ -3,10 +3,11 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'dotenv/load'
+
 class YelpAdapter
 
   def initialize
-    @api_key = ENV["API_KEY"]
+    @api_key = ENV["YELP_API_KEY"]
   end
 
   def place_search(city, district, offset = 0)
@@ -17,7 +18,7 @@ class YelpAdapter
     request = Net::HTTP::Get.new(url)
     request["authorization"] = "Bearer #{@api_key}"
     request["cache-control"] = 'no-cache'
-    request["postman-token"] = ENV["POSTMAN_TOKEN"]
+    request["postman-token"] = ENV["YELP_POSTMAN_TOKEN"]
     response = http.request(request)
     @data_set = response.read_body
   end
@@ -34,5 +35,5 @@ class YelpAdapter
   # end
 
 end
-test = YelpAdapter.new
-p test.place_search('san francisco', 'mission')
+# test = YelpAdapter.new
+# p test.place_search('san francisco', 'mission')
