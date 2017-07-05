@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701220558) do
+ActiveRecord::Schema.define(version: 20170704214736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "city_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locales", force: :cascade do |t|
     t.string "name", null: false
@@ -27,10 +33,18 @@ ActiveRecord::Schema.define(version: 20170701220558) do
     t.index ["plan_id"], name: "index_locales_on_plan_id"
   end
 
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "neighborhood_name", null: false
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_neighborhoods_on_city_id"
+  end
+
   create_table "plans", force: :cascade do |t|
     t.string "title", null: false
     t.string "city", null: false
-    t.string "district", null: false
+    t.string "district"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
