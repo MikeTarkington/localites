@@ -14,7 +14,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:user_id])
+    p "8" * 80
+    p params
+    @user = User.find(params[:id])
     @users_plans = @user.plans
     # if @users_plans.count == 0
     #   @users_plans = "You currently do not have any preferred locations. Please select \"create plan\" form the menu above."
