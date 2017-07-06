@@ -1,11 +1,13 @@
 class PlansController < ApplicationController
-  protect_from_forgery with: :null_session
+#  protect_from_forgery with: :null_session
 
   def create
-    # p '*' * 80
-    # p params
-    # p JSON.parse(params)
-    @plan = Plan.new(params[:user_id, :title, :city, :district])
+
+    @plan = Plan.new
+    @plan.user_id = params[:params][:user_id]
+    @plan.title = params[:params][:title]
+    @plan.city = params[:params][:city]
+    @plan.district = params[:params][:district]
     @plan.save
     render json: @plan
   end
