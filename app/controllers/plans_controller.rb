@@ -14,7 +14,8 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find_by(id: params[:id])
-    render json: @plan
+    @plan_locales = @plan.locales
+    render json: @plan_locales
   end
 
 end
