@@ -16,4 +16,9 @@ class LocalesController < ApplicationController
     @locale.save
   end
 
+  def delete
+    @locale = find_by(id: params[:params][:locale_id], plan_id: params[:params][:plan_id])
+    @locale.destroy
+  end
+
 end
