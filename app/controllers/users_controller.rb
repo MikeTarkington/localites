@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.new(:email => params[:email], :password => params[:password], :password_confirmation => params[:password])
+    @user = User.new(:email => params[:email], :password => params[:password], :password_confirmation => params[:password], :firebase_uid => params[:firebase_uid])
     @user.save
 
     sign_in @user

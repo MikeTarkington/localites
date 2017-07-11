@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :locales, :plans
   resources :users, only: [:create, :show]
 
+
+  get '/users/find_by_firebase', to: 'users#find_by_firebase'
+
   root to: "home#index"
 
 end
