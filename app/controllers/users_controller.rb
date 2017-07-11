@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
 
   def create
-    p '8' * 80
-    p params
-    p '8' * 80
     @user = User.new(:email => params[:params][:email], :password => params[:params][:password], :password_confirmation => params[:params][:password], :firebase_uid => params[:params][:firebase_uid])
     @user.save
 
