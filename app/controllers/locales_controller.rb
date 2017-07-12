@@ -2,7 +2,7 @@ class LocalesController < ApplicationController
 
   def index
     @yelp_query = YelpAdapter.new
-    @yelp_result = @yelp_query.place_search(params[:city], params[:neighborhood], params[:offset])
+    @yelp_result = @yelp_query.place_search(params[:city], params[:neighborhood], params[:category], params[:offset])
     render json: @yelp_result
   end
 
