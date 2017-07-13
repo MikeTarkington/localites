@@ -8,6 +8,7 @@ class LocalesController < ApplicationController
 
   def create
     @locale = Locale.new
+    @locale.yelp_id = params[:params][:card][:id]
     @locale.name = params[:params][:card][:name]
     @locale.image_url = params[:params][:card][:image_url]
     @locale.yelp_url = params[:params][:card][:url]

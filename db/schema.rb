@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170704214736) do
   end
 
   create_table "locales", force: :cascade do |t|
+    t.string "yelp_id", null: false
     t.string "name", null: false
     t.string "image_url", null: false
     t.string "description"
