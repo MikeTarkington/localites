@@ -16,6 +16,12 @@ class LocalesController < ApplicationController
     @locale.save
   end
 
+  def show
+    @yelp_query = YelpAdapter.new
+     @yelp_result = @yelp_query.place_details(params[:id])
+    render json: @yelp_result
+  end
+
   def destroy
     @locale = Locale.find_by(id: params[:locale_id])
     @locale.destroy
