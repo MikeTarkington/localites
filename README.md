@@ -1,24 +1,10 @@
-# README
+# Scoutr
+### Quick and fun exploration of neighborhoods around the globe.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Please visit the front-end repository for the application to see the full project description:
 
-Things you may want to cover:
+ https://github.com/intell-gent/pic_something
 
-* Ruby version
+Scoutr is a decoupled application that uses React Native on the front-end, and Rails 5 on the back-end.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The back-end is deployed to Heroku to serve data by managing relevant content in a PostgreSQL database and handling Yelp API calls, but it is also ready to be developed as an independent Rails web app.
